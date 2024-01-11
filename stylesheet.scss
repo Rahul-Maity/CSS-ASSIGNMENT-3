@@ -1,0 +1,112 @@
+
+// Define variables for color values
+:root {
+    --grey: #ececfb;   // Define a variable for grey color
+    --pink: #ff9999;   // Define a variable for pink color
+}
+
+// Mixin for flex container properties
+@mixin flex-container($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// Global styles
+* {
+    box-sizing: border-box;  // Apply box-sizing to all elements
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    @include flex-container(column, center, center);  // Apply flex properties to the body
+    height: 100vh;  // Set body height to 100% of the viewport height
+}
+
+.container {
+    padding: 10px;
+    width: 800px;
+    height: 500px;
+    border: 1px solid black;  // Define styling for the main container
+
+    .container-1 {
+        background-color: var(--pink);  // Set background color using defined variable
+        height: 35%;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        header {
+            margin-top: 10px;
+            width: 75%;
+            color: rgb(78, 76, 76);
+            font-family: fangsong;
+
+            h1 {
+                font-weight: 500;
+            }
+        }
+
+        section {
+            margin-top: 20px;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(81, 77, 77);
+            width: 85%;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+    }
+//In the following container-2, there is a box containing an image and another box containing profile logo and some text
+    .container-2 {
+        height: 65%;
+        border: 1px solid black;
+        display: flex;//Using flex they are aligned side by side
+
+        .box-1 {
+            background-color: rgb(234, 255, 0);
+            border: 1px solid black;
+            width: 70%;
+            @include flex-container(column, center, center);
+
+            img {
+                height: 95%;
+                width: 97%;
+            }
+        }
+
+        .box-2 {
+            background-color: var(--grey);  // Set background color using defined variable
+            width: 30%;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .img-container img {
+                height: 148px;
+                width: 136px;
+            }
+
+            .bio-container {
+                color: rgb(97, 93, 93);
+                font-size: 1.2rem;
+                font-family: math;
+            }
+
+            .text-container {
+                margin-top: 10px;
+                font-size: 18px;
+                height: 106px;
+                color: rgb(97, 93, 93);
+                font-family: 'Times New Roman', Times, serif;
+                width: 172px;
+                text-align: center;
+            }
+        }
+    }
+}
+
